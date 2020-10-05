@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidacionSmsComponent } from './validacion-sms/validacion-sms.component';
 import { NegociosComponent } from './negocios/negocios.component';
 import { SharedModule } from './shared/shared.module';
@@ -25,7 +25,8 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     HttpClientModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

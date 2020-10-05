@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../core/services/login/login.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Login } from '../core/models/login/login.model';
-import { Token } from '../core/models/token/token.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,33 +14,38 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   login: Login;
-  loginToken: Token;
   sToken: string;
-  loginForm: NgForm;
+  loginForm: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private router: Router) {
+      this.buildForm();
     }
 
     ngOnInit() {
   }
-
-  login1(form: NgForm){
-    this.getTokenClient(form.value.usuario, form.value.contrasenia);
-  }
-
-  getSesionClient(sUsuario: string, sPassword: string, s2Factor: string) {
-    this.loginService.getSession(sUsuario, sPassword, s2Factor).subscribe(login => {
-    this.login = login;
-    console.log('Result:  ' + JSON.stringify(this.login.detalle.iIdNegocio) + ' - ' + JSON.stringify(this.login));
+  // Creación del formulario desde un json
+  private buildForm() {
+    this.loginForm = this.formBuilder.group({
+      user: ['', [Validators.required]],
+      userPassword: ['', [Validators.required]]
     });
   }
-
-  getTokenClient(sUsuario: string, sPassword: string) {
-    this.loginService.getToken(sUsuario).subscribe(loginToken => {
-    this.loginToken = loginToken;
-    this.getSesionClient(sUsuario, sPassword, this.loginToken.detalle);
-    });
+// Function de inicio de sesion
+  loginUser(event: Event){
+    event.preventDefault();
+    console.log(this.loginForm.valid);
+    if (this.loginForm.valid) {
+      this.loginService.getSession(this.loginForm.value.user, this.loginForm.value.userPassword, null).subscribe(login => {
+      this.login = login;
+      console.log(JSON.stringify(this.login.resultDto.iResultado));
+      if (this.login.resultDto.iResultado === 'Ok') {
+        this.router.navigate(['validacion', { user: this.login.detalle.sUsuario, userPassword: this.loginForm.value.userPassword }]);
+      }
+      });
+    }
   }
 }

@@ -11,28 +11,14 @@
       <img src="https://thumbs.dreamstime.com/b/inicio-de-sesi%C3%B3n-contrase%C3%B1a-icono-c%C3%B3digo-seguridad-hermoso-dise%C3%B1o-y-acceso-completo-editable-para-proyectos-comerciales-medios-166831987.jpg" id="icon" alt="User Icon" />
     </div>
 
-    <!-- Login Form -->
-    <!--<form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="usuario">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="contraseña">
-      <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
-    </form>-->
-    <form>
+    <form [formGroup]="tokenForm"  (ngSubmit)="validateSession($event)">
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="00">
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="00">
-        </div>
-
-        <div class="col">
-          <input type="text" class="form-control" placeholder="00">
+          <input formControlName="userToken" type="text" class="form-control" placeholder="XXXXXX">
         </div>
       </div>
       <br>
-      <input type="submit" class="fadeIn fourth" value="Validar">
-      
+      <input type="submit" class="fadeIn fourth" value="Validar">   
     </form>
 
   </div>

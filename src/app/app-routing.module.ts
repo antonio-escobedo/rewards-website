@@ -18,7 +18,10 @@ const routes: Routes = [
     path: 'negocios',
     canActivate: [AdminGuard],
     component: NegociosComponent
-  }
+  },
+  { path: '',
+    redirectTo: 'login',
+    pathMatch: 'full' },
 ];
 
 @NgModule({

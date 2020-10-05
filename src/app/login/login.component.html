@@ -12,9 +12,9 @@
     </div>
 
     <!-- Login Form -->
-    <form #loginForm="ngForm" (ngSubmit)="login1( loginForm )">
-      <input ngModel type="text" id="login" class="fadeIn second" name="usuario" placeholder="usuario">
-      <input ngModel type="text" id="password" class="fadeIn third" name="contrasenia" placeholder="contraseña">
+    <form [formGroup]="loginForm"  (ngSubmit)="loginUser($event)">
+      <input  formControlName="user" type="text" class="fadeIn second" placeholder="usuario">
+      <input  formControlName="userPassword" type="text" class="fadeIn third" placeholder="contraseña">
       <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
     </form>
   </div>

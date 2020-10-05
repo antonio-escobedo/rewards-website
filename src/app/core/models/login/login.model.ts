@@ -2,7 +2,7 @@ import { Result } from '../result/result.model';
 
 export interface Login {
     detalle: LoginDetail;
-    resultadoDto: Result;
+    resultDto: Result;
 }
 
 export interface LoginDetail {
