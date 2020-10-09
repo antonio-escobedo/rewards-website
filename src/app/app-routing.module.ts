@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ValidacionSmsComponent } from './validacion-sms/validacion-sms.component';
 import { AdminGuard } from './admin.guard';
-import { NegociosComponent } from './negocios/negocios.component';
+import { NegociosComponent } from './negocio/components/negocios/negocios.component';
+import { MarcasComponent } from './marcas/marcas.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,11 @@ const routes: Routes = [
   },
   { path: '',
     redirectTo: 'login',
-    pathMatch: 'full' },
+    pathMatch: 'full'
+  },
+  { path: 'marcas',
+    component: MarcasComponent
+  }
 ];
 
 @NgModule({

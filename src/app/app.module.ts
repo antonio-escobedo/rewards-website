@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidacionSmsComponent } from './validacion-sms/validacion-sms.component';
-import { NegociosComponent } from './negocios/negocios.component';
+import { NegociosComponent } from './negocio/components/negocios/negocios.component';
+import { NegocioComponent } from './negocio/components/negocio/negocio.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { MarcasComponent } from './marcas/marcas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     LoginComponent,
     ValidacionSmsComponent,
-    NegociosComponent
+    NegociosComponent,
+    MarcasComponent,
+    NegocioComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     SharedModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

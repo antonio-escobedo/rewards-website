@@ -51,7 +51,7 @@ export class ValidacionSmsComponent implements OnInit {
         this.loginService.getSession(this.userName, this.userPassword, this.tokenForm.value.userToken).subscribe(login => {
           this.login = login;
           if (this.login.resultDto.iResultado === 'Ok') {
-            this.router.navigate(['negocios', { id: 1 }]);
+            this.router.navigate(['negocio/component/negocios/negocio', { idNegocio: this.login.detalle.iIdNegocio }]);
           }
           });
       }

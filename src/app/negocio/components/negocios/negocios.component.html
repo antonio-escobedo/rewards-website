@@ -1,0 +1,15 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h3">CONFIGURACIÓN DE NEGOCIO</h5>
+        <div class="row">
+            <!-- Team member -->
+            <app-negocio
+                *ngFor="let negociosDetail of negocioDetail" [negocioDetail]="negociosDetail">
+            </app-negocio>
+                </div>
+            </div>
+</section>
