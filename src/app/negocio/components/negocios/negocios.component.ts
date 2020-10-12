@@ -13,6 +13,8 @@ export class NegociosComponent implements OnInit {
   iIdNegocio: number;
   negocio: Negocio;
   negocioDetail: NegocioDetail[] = [];
+  checked = false;
+  colorInput = 'primary';
 
   constructor(
     private route: ActivatedRoute,
