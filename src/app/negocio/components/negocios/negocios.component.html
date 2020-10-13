@@ -41,9 +41,21 @@
       </svg>
     </div>
   </app-root>
-
+  <!-- <app-header></app-header> -->
   <div class="main-content">
     <div class="container-fluid">
+        <mat-accordion class="example-headers-align" multi>
+        <!-- Fila número 1-->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Configuración - 1
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <mat-icon></mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
@@ -51,13 +63,13 @@
                         <div class="card-icon">
                             <i class="material-icons">attach_money</i>
                         </div>
-                        <h3 class="card-title">Monto en pesos</h3>
-                        <p class="card-category">Inactivo</p>
+                        <h4 class="card-title"><strong>Monto en pesos</strong></h4>
+                        <p *ngIf="negocioDetail[0].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[0].bIsAppConfig == false" class="card-category">Inactivo</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <mat-checkbox class="example-margin" [color]="colorInput" [(ngModel)]="checked"></mat-checkbox>
-                            
+                            <mat-checkbox  [checked]="negocioDetail[0].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
                         </div>
                         <div class="derecha">
                             <button mat-raised-button color="primary">Actualizar</button>
@@ -69,15 +81,18 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-success card-header-icon">
                         <div class="card-icon">
-                            <img src="https://organicoynatural.mx/RewardsImg/logobello.png" style="width: 56px;
-                            height: 56px"/>
+                            <i class="material-icons">point_of_sale</i>
                         </div>
-                        <p class="card-category">Revenue</p>
-                        <h3 class="card-title">$34,245</h3>
+                        <h4 class="card-title"><strong>Notifica caducidad puntos</strong></h4>
+                        <p *ngIf="negocioDetail[1].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[1].bIsAppConfig == false" class="card-category">Inactivo</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">date_range</i> Last 24 Hours
+                            <mat-checkbox [checked]="negocioDetail[1].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
                         </div>
                     </div>
                 </div>
@@ -86,14 +101,18 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-danger card-header-icon">
                         <div class="card-icon">
-                            <i class="material-icons">info_outline</i>
+                            <i class="material-icons">security</i>
                         </div>
-                        <p class="card-category">Fixed Issues</p>
-                        <h3 class="card-title">75</h3>
+                        <h4 class="card-title"><strong>Pedir contraseña</strong></h4>
+                        <p *ngIf="negocioDetail[2].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[2].bIsAppConfig == false" class="card-category">Inactivo</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">local_offer</i> Tracked from Github
+                            <mat-checkbox  [checked]="negocioDetail[2].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
                         </div>
                     </div>
                 </div>
@@ -102,27 +121,502 @@
                 <div class="card card-stats">
                     <div class="card-header card-header-info card-header-icon">
                         <div class="card-icon">
-                            <i class="fa fa-twitter"></i>
+                            <i class="material-icons">email</i>
                         </div>
-                        <p class="card-category">Followers</p>
-                        <h3 class="card-title">+245</h3>
+                        <h4 class="card-title"><strong>Validar email</strong></h4>
+                        <p *ngIf="negocioDetail[3].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[3].bIsAppConfig == false" class="card-category">Inactivo</p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">update</i> Just Updated
+                            <mat-checkbox  [checked]="negocioDetail[3].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </mat-expansion-panel>
+        <!-- Fila número 2-->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Configuración - 2
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <mat-icon></mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">smartphone</i>
+                        </div>
+                        <h4 class="card-title"><strong>Validar teléfono</strong></h4>
+                        <p *ngIf="negocioDetail[4].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[4].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[4].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                           <input type="color">
+                        </div>
+                        <h4 class="card-title"><strong>Color de fondo</strong></h4>
+                        <p *ngIf="negocioDetail[5].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[5].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox [checked]="negocioDetail[5].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">calendar_today</i>
+                        </div>
+                        <h4 class="card-title"><strong>Dias notificar caducidad puntos</strong></h4>
+                        <p *ngIf="negocioDetail[6].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[6].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[6].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">query_builder</i>
+                        </div>
+                        <h4 class="card-title"><strong>Días vigencia</strong></h4>
+                        <p *ngIf="negocioDetail[7].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[7].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[7].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+        <!-- Fila número 3-->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Configuración - 3
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <mat-icon></mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">message</i>
+                        </div>
+                        <h4 class="card-title"><strong>Mensaje caducidad puntos</strong></h4>
+                        <p style="color: black;" >{{ negocioDetail[8].sData }}</p>
+                        <p *ngIf="negocioDetail[8].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[8].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[8].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">point_of_sale</i>
+                        </div>
+                        <h4 class="card-title"><strong>Pesos x punto</strong></h4>
+                        <p style="color: black;" >{{ negocioDetail[9].sData | currency }}</p>
+                        <p *ngIf="negocioDetail[9].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[9].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox [checked]="negocioDetail[9].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">control_point</i>
+                        </div>
+                        <h4 class="card-title"><strong>Puntos x peso</strong></h4>
+                        <p style="color: black;" >{{ negocioDetail[10].sData }}</p>
+                        <p *ngIf="negocioDetail[10].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[10].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[10].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">location_on</i>
+                        </div>
+                        <h4 class="card-title"><strong>Registra código postal</strong></h4>
+                        <p *ngIf="negocioDetail[11].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[11].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[11].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+        <!-- Fila número 4-->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Configuración - 4
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <mat-icon></mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">email</i>
+                        </div>
+                        <h4 class="card-title"><strong>Registra correo</strong></h4>
+                        <p *ngIf="negocioDetail[12].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[12].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[12].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">add_location</i>
+                        </div>
+                        <h4 class="card-title"><strong>Registra dirección</strong></h4>
+                        <p *ngIf="negocioDetail[13].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[13].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox [checked]="negocioDetail[13].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">map</i>
+                        </div>
+                        <h4 class="card-title"><strong>Registra estado</strong></h4>
+                        <p *ngIf="negocioDetail[14].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[14].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[14].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">perm_identity</i>
+                        </div>
+                        <h4 class="card-title"><strong>Registra nombre</strong></h4>
+                        <p *ngIf="negocioDetail[15].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[15].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[15].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+        <!-- Fila número 5 -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Configuración - 5 
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <mat-icon></mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">contact_phone</i>
+                        </div>
+                        <h4 class="card-title"><strong>Registro teléfono</strong></h4>
+                        <p *ngIf="negocioDetail[16].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[16].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[16].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">menu</i>
+                        </div>
+                        <h4 class="card-title"><strong>Nombre de menú</strong></h4>
+                        <p style="color: black;" >{{ negocioDetail[17].sData }}</p>
+                        <p *ngIf="negocioDetail[17].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[17].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox [checked]="negocioDetail[17].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">privacy_tip</i>
+                        </div>
+                        <h4 class="card-title"><strong>Aviso de privacidad</strong></h4>
+                        <p style="color: black;" >{{ negocioDetail[18].sData }}</p>
+                        <p *ngIf="negocioDetail[18].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[18].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[18].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">credit_card</i>
+                        </div>
+                        <h4 class="card-title"><strong>Diseño tarjeta</strong></h4>
+                        <p *ngIf="negocioDetail[19].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[19].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[19].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+        <!-- Fila número 6 -->
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Configuración - 6
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <mat-icon></mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">image</i>
+                        </div>
+                        <h4 class="card-title"><strong>Logotipo</strong></h4>
+                        <p *ngIf="negocioDetail[20].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[20].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[20].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">point_of_sale</i>
+                        </div>
+                        <h4 class="card-title"><strong>Notifica caducidad puntos</strong></h4>
+                        <p *ngIf="negocioDetail[1].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[1].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox [checked]="negocioDetail[1].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">security</i>
+                        </div>
+                        <h4 class="card-title"><strong>Pedir contraseña</strong></h4>
+                        <p *ngIf="negocioDetail[3].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[3].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[2].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">email</i>
+                        </div>
+                        <h4 class="card-title"><strong>Validar email</strong></h4>
+                        <p *ngIf="negocioDetail[4].bIsAppConfig == true" class="card-category">Activo</p>
+                        <p *ngIf="negocioDetail[4].bIsAppConfig == false" class="card-category">Inactivo</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <mat-checkbox  [checked]="negocioDetail[3].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                        </div>
+                        <div class="derecha">
+                            <button mat-raised-button color="primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </mat-expansion-panel>
+    </mat-accordion>
     </div>
   </div>
   
 </body>
-
-
 </html>
-            <app-negocio
-                *ngFor="let negociosDetail of negocioDetail" [negocioDetail]="negociosDetail">
-            </app-negocio>
-               
