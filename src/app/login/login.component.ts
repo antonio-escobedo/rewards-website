@@ -4,6 +4,7 @@ import { LoginService } from '../core/services/login/login.service';
 import { ActivatedRoute } from '@angular/router';
 import { Login } from '../core/models/login/login.model';
 import { Router } from '@angular/router';
+import { Md5 } from 'md5-typescript';
 
 @Component({
   selector: 'app-login',
@@ -37,13 +38,12 @@ export class LoginComponent implements OnInit {
 // Function de inicio de sesion
   loginUser(event: Event){
     event.preventDefault();
-    console.log(this.loginForm.valid);
     if (this.loginForm.valid) {
-      this.loginService.getSession(this.loginForm.value.user, this.loginForm.value.userPassword, null).subscribe(login => {
+      this.loginService.getSession(this.loginForm.value.user, Md5.init(this.loginForm.value.userPassword), null).subscribe(login => {
       this.login = login;
-      console.log(JSON.stringify(this.login.resultDto.iResultado));
       if (this.login.resultDto.iResultado === 'Ok') {
-        this.router.navigate(['validacion', { user: this.login.detalle.sUsuario, userPassword: this.loginForm.value.userPassword }]);
+        this.router.navigate(['validacion', { user: this.login.detalle.sUsuario,
+          userPassword: Md5.init(this.loginForm.value.userPassword) }]);
       }
       });
     }
