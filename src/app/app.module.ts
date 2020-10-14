@@ -13,11 +13,8 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { MarcasComponent } from './marcas/marcas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MaterialModule } from './material/material.module';
+
 
 
 
@@ -40,12 +37,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CoreModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatToolbarModule
-  ],
+    MaterialModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
