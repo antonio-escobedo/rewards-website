@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <form [formGroup]="param0Form" (ngSubmit)="updateParameter($event)">
+                                <form [formGroup]="paramForm0" (ngSubmit)="updateParameter($event, paramForm0)">
                                     <div class="card-header card-header-warning card-header-icon">
                                         <div class="card-icon">
                                             <i class="material-icons">attach_money</i>
@@ -84,13 +84,13 @@
                                         <h4 class="card-title"><strong>Monto en pesos</strong></h4>
                                         <mat-form-field class="example-form-field">
                                             <mat-label>Valor:</mat-label>
-                                            <input matInput type="text" formControlName="sData0" class="card-category card-title" />
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
                                         </mat-form-field>
-                                        <input type="hidden" formControlName="sParametro0" class="card-category" readonly/>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
                                     <div class="card-footer">
                                         <div class="stats">
-                                            <mat-checkbox formControlName="bIsAppConfig0" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
                                         </div>
                                         <div class="derecha">
                                             <button type="submit" mat-raised-button color="primary">Actualizar</button>
@@ -101,62 +101,77 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-success card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">point_of_sale</i>
+                                <form [formGroup]="paramForm1" (ngSubmit)="updateParameter($event, paramForm1)">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">point_of_sale</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Notifica caducidad puntos</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Notifica caducidad puntos</strong></h4>
-                                    <p *ngIf="negocioDetail[1].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[1].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[1].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-danger card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">security</i>
+                                <form [formGroup]="paramForm2" (ngSubmit)="updateParameter($event, paramForm2)">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">security</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Pedir contraseña</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Pedir contraseña</strong></h4>
-                                    <p *ngIf="negocioDetail[2].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[2].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[2].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-info card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">email</i>
+                                <form [formGroup]="paramForm3" (ngSubmit)="updateParameter($event, paramForm3)">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">email</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Validar email</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Validar email</strong></h4>
-                                    <p *ngIf="negocioDetail[3].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[3].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[3].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -175,82 +190,102 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">smartphone</i>
+                                <form [formGroup]="paramForm4" (ngSubmit)="updateParameter($event, paramForm4)">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">smartphone</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Validar teléfono</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Validar teléfono</strong></h4>
-                                    <p *ngIf="negocioDetail[4].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[4].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[4].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-success card-header-icon">
-                                    <div class="card-icon">
-                                        <input type="color">
+                                <form [formGroup]="paramForm5" (ngSubmit)="updateParameter($event, paramForm5)">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <input type="color">
+                                        </div>
+                                        <h4 class="card-title"><strong>Color de fondo</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Color de fondo</strong></h4>
-                                    <p *ngIf="negocioDetail[5].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[5].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[5].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-danger card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">calendar_today</i>
+                                <form [formGroup]="paramForm6" (ngSubmit)="updateParameter($event, paramForm6)">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">calendar_today</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Dias notificar caducidad puntos</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Dias notificar caducidad puntos</strong></h4>
-                                    <p *ngIf="negocioDetail[6].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[6].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[6].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-info card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">query_builder</i>
+                                <form [formGroup]="paramForm7" (ngSubmit)="updateParameter($event, paramForm7)">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">query_builder</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Días vigencia</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Días vigencia</strong></h4>
-                                    <p *ngIf="negocioDetail[7].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[7].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[7].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -269,85 +304,102 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">message</i>
+                                <form [formGroup]="paramForm8" (ngSubmit)="updateParameter($event, paramForm8)">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">message</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Mensaje caducidad puntos</strong></h4>
+                                        <mat-form-field class="example-form-field-width75">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Mensaje caducidad puntos</strong></h4>
-                                    <p style="color: black;">{{ negocioDetail[8].sData }}</p>
-                                    <p *ngIf="negocioDetail[8].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[8].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[8].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-success card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">point_of_sale</i>
+                                <form [formGroup]="paramForm9" (ngSubmit)="updateParameter($event, paramForm9)">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">point_of_sale</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Pesos x punto</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Pesos x punto</strong></h4>
-                                    <p style="color: black;">{{ negocioDetail[9].sData | currency }}</p>
-                                    <p *ngIf="negocioDetail[9].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[9].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[9].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-danger card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">control_point</i>
+                                <form [formGroup]="paramForm10" (ngSubmit)="updateParameter($event, paramForm10)">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">control_point</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Puntos x peso</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Puntos x peso</strong></h4>
-                                    <p style="color: black;">{{ negocioDetail[10].sData }}</p>
-                                    <p *ngIf="negocioDetail[10].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[10].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[10].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-info card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">location_on</i>
+                                <form [formGroup]="paramForm11" (ngSubmit)="updateParameter($event, paramForm11)">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">location_on</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Registra código postal</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Registra código postal</strong></h4>
-                                    <p *ngIf="negocioDetail[11].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[11].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[11].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -366,82 +418,102 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">email</i>
+                                <form [formGroup]="paramForm12" (ngSubmit)="updateParameter($event, paramForm12)">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">email</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Registra correo</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Registra correo</strong></h4>
-                                    <p *ngIf="negocioDetail[12].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[12].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[12].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-success card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">add_location</i>
+                                <form [formGroup]="paramForm13" (ngSubmit)="updateParameter($event, paramForm13)">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">add_location</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Registra dirección</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Registra dirección</strong></h4>
-                                    <p *ngIf="negocioDetail[13].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[13].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[13].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-danger card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">map</i>
+                                <form [formGroup]="paramForm14" (ngSubmit)="updateParameter($event, paramForm14)">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">map</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Registra estado</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Registra estado</strong></h4>
-                                    <p *ngIf="negocioDetail[14].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[14].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[14].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-info card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">perm_identity</i>
+                                <form [formGroup]="paramForm15" (ngSubmit)="updateParameter($event, paramForm15)">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">perm_identity</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Registra nombre</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Registra nombre</strong></h4>
-                                    <p *ngIf="negocioDetail[15].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[15].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[15].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -460,84 +532,102 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">contact_phone</i>
+                                <form [formGroup]="paramForm16" (ngSubmit)="updateParameter($event, paramForm16)">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">contact_phone</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Registro teléfono</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Registro teléfono</strong></h4>
-                                    <p *ngIf="negocioDetail[16].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[16].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[16].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-success card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">menu</i>
+                                <form [formGroup]="paramForm17" (ngSubmit)="updateParameter($event, paramForm17)">
+                                    <div class="card-header card-header-success card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">menu</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Nombre de menú</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Nombre de menú</strong></h4>
-                                    <p style="color: black;">{{ negocioDetail[17].sData }}</p>
-                                    <p *ngIf="negocioDetail[17].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[17].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[17].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-danger card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">privacy_tip</i>
+                                <form [formGroup]="paramForm18" (ngSubmit)="updateParameter($event, paramForm18)">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">privacy_tip</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Aviso de privacidad</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Aviso de privacidad</strong></h4>
-                                    <p style="color: black;">{{ negocioDetail[18].sData }}</p>
-                                    <p *ngIf="negocioDetail[18].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[18].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[18].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-info card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">credit_card</i>
+                                <form [formGroup]="paramForm19" (ngSubmit)="updateParameter($event, paramForm19)">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">credit_card</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Diseño tarjeta</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Diseño tarjeta</strong></h4>
-                                    <p *ngIf="negocioDetail[19].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[19].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[19].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -556,84 +646,29 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
-                                <div class="card-header card-header-warning card-header-icon">
-                                    <div class="card-icon">
-                                        <i class="material-icons">image</i>
+                                <form [formGroup]="paramForm20" (ngSubmit)="updateParameter($event, paramForm20)">
+                                    <div class="card-header card-header-warning card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">image</i>
+                                        </div>
+                                        <h4 class="card-title"><strong>Logotipo</strong></h4>
+                                        <mat-form-field class="example-form-field">
+                                            <mat-label>Valor:</mat-label>
+                                            <input matInput type="text" formControlName="sData" class="card-category card-title" />
+                                        </mat-form-field>
+                                        <input type="hidden" formControlName="sParametro" class="card-category" readonly/>
                                     </div>
-                                    <h4 class="card-title"><strong>Logotipo</strong></h4>
-                                    <p *ngIf="negocioDetail[20].bIsAppConfig == true" class="card-category">Activo</p>
-                                    <p *ngIf="negocioDetail[20].bIsAppConfig == false" class="card-category">Inactivo</p>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <mat-checkbox [checked]="negocioDetail[20].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <mat-checkbox formControlName="bIsAppConfig" type="checkbox" class="example-margin" [color]="colorInput"></mat-checkbox>
+                                        </div>
+                                        <div class="derecha">
+                                            <button type="submit" mat-raised-button color="primary">Actualizar</button>
+                                        </div>
                                     </div>
-                                    <div class="derecha">
-                                        <button mat-raised-button color="primary">Actualizar</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-success card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">point_of_sale</i>
-                        </div>
-                        <h4 class="card-title"><strong>Notifica caducidad puntos</strong></h4>
-                        <p *ngIf="negocioDetail[1].bIsAppConfig == true" class="card-category">Activo</p>
-                        <p *ngIf="negocioDetail[1].bIsAppConfig == false" class="card-category">Inactivo</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <mat-checkbox [checked]="negocioDetail[1].bIsAppConfig" class="example-margin" [color]="colorInput" ></mat-checkbox>
-                        </div>
-                        <div class="derecha">
-                            <button mat-raised-button color="primary">Actualizar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-danger card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">security</i>
-                        </div>
-                        <h4 class="card-title"><strong>Pedir contraseña</strong></h4>
-                        <p *ngIf="negocioDetail[3].bIsAppConfig == true" class="card-category">Activo</p>
-                        <p *ngIf="negocioDetail[3].bIsAppConfig == false" class="card-category">Inactivo</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <mat-checkbox  [checked]="negocioDetail[2].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
-                        </div>
-                        <div class="derecha">
-                            <button mat-raised-button color="primary">Actualizar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-info card-header-icon">
-                        <div class="card-icon">
-                            <i class="material-icons">email</i>
-                        </div>
-                        <h4 class="card-title"><strong>Validar email</strong></h4>
-                        <p *ngIf="negocioDetail[4].bIsAppConfig == true" class="card-category">Activo</p>
-                        <p *ngIf="negocioDetail[4].bIsAppConfig == false" class="card-category">Inactivo</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <mat-checkbox  [checked]="negocioDetail[3].bIsAppConfig" class="example-margin" [color]="colorInput"></mat-checkbox>
-                        </div>
-                        <div class="derecha">
-                            <button mat-raised-button color="primary">Actualizar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
                     </div>
                 </mat-expansion-panel>
             </mat-accordion>

@@ -9,5 +9,5 @@ export class ConstantesConexion {
 export class ConstantesMetodos {
     static readonly LOGIN_NEGOCIO = 'loginNegocio';
     static readonly TOKEN = 'token2Factores';
-    static readonly CONFIG_NEGOCIO = 'configuracionNegocios';
+    static readonly CONFIG_NEGOCIO = 'configuracionApp';
 }
