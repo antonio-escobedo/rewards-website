@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidacionSmsComponent } from './validacion-sms/validacion-sms.component';
+import { ValidationTokenComponent } from './validation-token/validation-token.component';
 import { NegociosComponent } from './negocio/components/negocios/negocios.component';
 import { NegocioComponent } from './negocio/components/negocio/negocio.component';
 import { SharedModule } from './shared/shared.module';
@@ -23,7 +23,7 @@ import { MaterialModule } from './material/material.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    ValidacionSmsComponent,
+    ValidationTokenComponent,
     NegociosComponent,
     MarcasComponent,
     NegocioComponent

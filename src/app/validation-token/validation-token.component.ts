@@ -7,11 +7,11 @@ import { Login } from '../core/models/login/login.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-validacion-sms',
-  templateUrl: './validacion-sms.component.html',
-  styleUrls: ['./validacion-sms.component.scss']
+  selector: 'app-validation-token',
+  templateUrl: './validation-token.component.html',
+  styleUrls: ['./validation-token.component.scss']
 })
-export class ValidacionSmsComponent implements OnInit {
+export class ValidationTokenComponent implements OnInit {
   token: Token;
   login: Login;
   tokenForm: FormGroup;
