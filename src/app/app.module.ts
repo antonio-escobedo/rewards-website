@@ -7,11 +7,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidationTokenComponent } from './validation-token/validation-token.component';
-import { NegociosComponent } from './negocio/components/negocios/negocios.component';
-import { NegocioComponent } from './negocio/components/negocio/negocio.component';
+import { BusinessesComponent } from './business/components/businesses/businesses.component';
+import { BusinessComponent } from './business/components/business/business.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { MarcasComponent } from './marcas/marcas.component';
+import { BrandsComponent } from './brands/brands.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
@@ -24,9 +24,9 @@ import { MaterialModule } from './material/material.module';
     AppComponent,
     LoginComponent,
     ValidationTokenComponent,
-    NegociosComponent,
-    MarcasComponent,
-    NegocioComponent
+    BusinessesComponent,
+    BrandsComponent,
+    BusinessComponent
   ],
   imports: [
     BrowserModule,

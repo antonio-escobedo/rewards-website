@@ -1,0 +1,21 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="col-xs-12 col-sm-6 col-md-12">
+    <div class="frontside">
+        <div class="card">
+            <div class="card-body text-center">
+                <p><img class=" img-fluid" src="https://static.vecteezy.com/system/resources/previews/000/291/666/non_2x/money-flow-vector-icon.jpg" alt="card image"></p>
+                <h4 class="card-title">{{ businessDetail.sParametro }}</h4>
+                <p class="card-text">{{ businessDetail.sData }}</p>
+                <input *ngIf="businessDetail.bIsAppConfig == true; else elseBlock" type="checkbox" checked="true">
+                <ng-template #elseBlock>
+                    checked="false"
+                </ng-template>
+
+                <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+</div>

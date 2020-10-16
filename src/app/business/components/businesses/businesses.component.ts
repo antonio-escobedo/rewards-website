@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { NegocioService } from '../../../core/services/negocio/negocio.service';
-import { Negocio, NegocioDetail } from '../../../core/models/negocio/negocio.model';
+import { BusinessService } from '../../../core/services/business/business.service';
+import { Business, BusinessDetail } from '../../../core/models/business/business.model';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-negocios',
-  templateUrl: './negocios.component.html',
-  styleUrls: ['./negocios.component.scss']
+  selector: 'app-businesses',
+  templateUrl: './businesses.component.html',
+  styleUrls: ['./businesses.component.scss']
 })
-export class NegociosComponent implements OnInit {
+export class BusinessesComponent implements OnInit {
 
   paramForm0: FormGroup ;
   paramForm1: FormGroup;
@@ -57,9 +57,9 @@ export class NegociosComponent implements OnInit {
 }
 
   iIdNegocio: number;
-  negocio: Negocio;
+  business: Business;
   nombrePersona: string = 'Usuario';
-  negocioDetail: NegocioDetail[] = [
+  businessDetail: BusinessDetail[] = [
     {
       "bIsAppConfig": true,
       "iIdNegocio": 2,
@@ -196,7 +196,7 @@ export class NegociosComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private negocioService: NegocioService,
+    private businessService: BusinessService,
     private formBuilder: FormBuilder,
   ) {
     this.buildForm();
@@ -336,132 +336,132 @@ export class NegociosComponent implements OnInit {
     this.userName = this.route.snapshot.paramMap.get('userName');
    /*/ this.negocioService.getNegocio(this.iIdNegocio).subscribe(negocio => {
       this.negocio = negocio;
-      this.negocioDetail = this.negocio.detalle;
+      this.businessDetail = this.negocio.detalle;
     });*/
     this.paramForm0.patchValue({
-      bIsAppConfig: this.negocioDetail[0].bIsAppConfig,
-      sData: this.negocioDetail[0].sData,
-      sParametro: this.negocioDetail[0].sParametro,
+      bIsAppConfig: this.businessDetail[0].bIsAppConfig,
+      sData: this.businessDetail[0].sData,
+      sParametro: this.businessDetail[0].sParametro,
     });
 
     this.paramForm1.patchValue({
-      bIsAppConfig: this.negocioDetail[1].bIsAppConfig,
-      sData: this.negocioDetail[1].sData,
-      sParametro: this.negocioDetail[1].sParametro,
+      bIsAppConfig: this.businessDetail[1].bIsAppConfig,
+      sData: this.businessDetail[1].sData,
+      sParametro: this.businessDetail[1].sParametro,
     });
 
     this.paramForm2.patchValue({
-      bIsAppConfig: this.negocioDetail[2].bIsAppConfig,
-      sData: this.negocioDetail[2].sData,
-      sParametro: this.negocioDetail[2].sParametro,
+      bIsAppConfig: this.businessDetail[2].bIsAppConfig,
+      sData: this.businessDetail[2].sData,
+      sParametro: this.businessDetail[2].sParametro,
     });
 
     this.paramForm3.patchValue({
-      bIsAppConfig: this.negocioDetail[3].bIsAppConfig,
-      sData: this.negocioDetail[3].sData,
-      sParametro: this.negocioDetail[3].sParametro,
+      bIsAppConfig: this.businessDetail[3].bIsAppConfig,
+      sData: this.businessDetail[3].sData,
+      sParametro: this.businessDetail[3].sParametro,
     });
 
     this.paramForm4.patchValue({
-      bIsAppConfig: this.negocioDetail[4].bIsAppConfig,
-      sData: this.negocioDetail[4].sData,
-      sParametro: this.negocioDetail[4].sParametro,
+      bIsAppConfig: this.businessDetail[4].bIsAppConfig,
+      sData: this.businessDetail[4].sData,
+      sParametro: this.businessDetail[4].sParametro,
     });
 
     this.paramForm5.patchValue({
-      bIsAppConfig: this.negocioDetail[5].bIsAppConfig,
-      sData: this.negocioDetail[5].sData,
-      sParametro: this.negocioDetail[5].sParametro,
+      bIsAppConfig: this.businessDetail[5].bIsAppConfig,
+      sData: this.businessDetail[5].sData,
+      sParametro: this.businessDetail[5].sParametro,
     });
 
     this.paramForm6.patchValue({
-      bIsAppConfig: this.negocioDetail[6].bIsAppConfig,
-      sData: this.negocioDetail[6].sData,
-      sParametro: this.negocioDetail[6].sParametro,
+      bIsAppConfig: this.businessDetail[6].bIsAppConfig,
+      sData: this.businessDetail[6].sData,
+      sParametro: this.businessDetail[6].sParametro,
     });
 
     this.paramForm7.patchValue({
-      bIsAppConfig: this.negocioDetail[7].bIsAppConfig,
-      sData: this.negocioDetail[7].sData,
-      sParametro: this.negocioDetail[7].sParametro,
+      bIsAppConfig: this.businessDetail[7].bIsAppConfig,
+      sData: this.businessDetail[7].sData,
+      sParametro: this.businessDetail[7].sParametro,
     });
 
     this.paramForm8.patchValue({
-      bIsAppConfig: this.negocioDetail[8].bIsAppConfig,
-      sData: this.negocioDetail[8].sData,
-      sParametro: this.negocioDetail[8].sParametro,
+      bIsAppConfig: this.businessDetail[8].bIsAppConfig,
+      sData: this.businessDetail[8].sData,
+      sParametro: this.businessDetail[8].sParametro,
     });
 
     this.paramForm9.patchValue({
-      bIsAppConfig: this.negocioDetail[9].bIsAppConfig,
-      sData: this.negocioDetail[9].sData,
-      sParametro: this.negocioDetail[9].sParametro,
+      bIsAppConfig: this.businessDetail[9].bIsAppConfig,
+      sData: this.businessDetail[9].sData,
+      sParametro: this.businessDetail[9].sParametro,
     });
 
     this.paramForm10.patchValue({
-      bIsAppConfig: this.negocioDetail[10].bIsAppConfig,
-      sData: this.negocioDetail[10].sData,
-      sParametro: this.negocioDetail[10].sParametro,
+      bIsAppConfig: this.businessDetail[10].bIsAppConfig,
+      sData: this.businessDetail[10].sData,
+      sParametro: this.businessDetail[10].sParametro,
     });
 
     this.paramForm11.patchValue({
-      bIsAppConfig: this.negocioDetail[11].bIsAppConfig,
-      sData: this.negocioDetail[11].sData,
-      sParametro: this.negocioDetail[11].sParametro,
+      bIsAppConfig: this.businessDetail[11].bIsAppConfig,
+      sData: this.businessDetail[11].sData,
+      sParametro: this.businessDetail[11].sParametro,
     });
 
     this.paramForm12.patchValue({
-      bIsAppConfig: this.negocioDetail[12].bIsAppConfig,
-      sData: this.negocioDetail[12].sData,
-      sParametro: this.negocioDetail[12].sParametro,
+      bIsAppConfig: this.businessDetail[12].bIsAppConfig,
+      sData: this.businessDetail[12].sData,
+      sParametro: this.businessDetail[12].sParametro,
     });
 
     this.paramForm13.patchValue({
-      bIsAppConfig: this.negocioDetail[13].bIsAppConfig,
-      sData: this.negocioDetail[13].sData,
-      sParametro: this.negocioDetail[13].sParametro,
+      bIsAppConfig: this.businessDetail[13].bIsAppConfig,
+      sData: this.businessDetail[13].sData,
+      sParametro: this.businessDetail[13].sParametro,
     });
 
     this.paramForm14.patchValue({
-      bIsAppConfig: this.negocioDetail[14].bIsAppConfig,
-      sData: this.negocioDetail[14].sData,
-      sParametro: this.negocioDetail[14].sParametro,
+      bIsAppConfig: this.businessDetail[14].bIsAppConfig,
+      sData: this.businessDetail[14].sData,
+      sParametro: this.businessDetail[14].sParametro,
     });
 
     this.paramForm15.patchValue({
-      bIsAppConfig: this.negocioDetail[15].bIsAppConfig,
-      sData: this.negocioDetail[15].sData,
-      sParametro: this.negocioDetail[15].sParametro,
+      bIsAppConfig: this.businessDetail[15].bIsAppConfig,
+      sData: this.businessDetail[15].sData,
+      sParametro: this.businessDetail[15].sParametro,
     });
 
     this.paramForm16.patchValue({
-      bIsAppConfig: this.negocioDetail[16].bIsAppConfig,
-      sData: this.negocioDetail[16].sData,
-      sParametro: this.negocioDetail[16].sParametro,
+      bIsAppConfig: this.businessDetail[16].bIsAppConfig,
+      sData: this.businessDetail[16].sData,
+      sParametro: this.businessDetail[16].sParametro,
     });
 
     this.paramForm17.patchValue({
-      bIsAppConfig: this.negocioDetail[17].bIsAppConfig,
-      sData: this.negocioDetail[17].sData,
-      sParametro: this.negocioDetail[17].sParametro,
+      bIsAppConfig: this.businessDetail[17].bIsAppConfig,
+      sData: this.businessDetail[17].sData,
+      sParametro: this.businessDetail[17].sParametro,
     });
 
     this.paramForm18.patchValue({
-      bIsAppConfig: this.negocioDetail[18].bIsAppConfig,
-      sData: this.negocioDetail[18].sData,
-      sParametro: this.negocioDetail[18].sParametro,
+      bIsAppConfig: this.businessDetail[18].bIsAppConfig,
+      sData: this.businessDetail[18].sData,
+      sParametro: this.businessDetail[18].sParametro,
     });
 
     this.paramForm19.patchValue({
-      bIsAppConfig: this.negocioDetail[19].bIsAppConfig,
-      sData: this.negocioDetail[19].sData,
-      sParametro: this.negocioDetail[19].sParametro,
+      bIsAppConfig: this.businessDetail[19].bIsAppConfig,
+      sData: this.businessDetail[19].sData,
+      sParametro: this.businessDetail[19].sParametro,
     });
 
     this.paramForm20.patchValue({
-      bIsAppConfig: this.negocioDetail[20].bIsAppConfig,
-      sData: this.negocioDetail[20].sData,
-      sParametro: this.negocioDetail[20].sParametro,
+      bIsAppConfig: this.businessDetail[20].bIsAppConfig,
+      sData: this.businessDetail[20].sData,
+      sParametro: this.businessDetail[20].sParametro,
     });
   }
 

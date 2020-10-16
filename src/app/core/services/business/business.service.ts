@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Negocio } from '../../models/negocio/negocio.model';
+import { Business } from '../../models/business/business.model';
 import { ConstantesConexion, ConstantesMetodos } from '../../../shared/utils/utils';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NegocioService {
+export class BusinessService {
 
   constructor(
     private httpClient: HttpClient
@@ -14,6 +14,6 @@ export class NegocioService {
 
   getNegocio(iIdNegocio: number){
     console.log('Negocio: ' + (iIdNegocio));
-    return this.httpClient.get<Negocio>(`${ConstantesConexion.PROTOCOL}://${ConstantesConexion.HOST_URL}/${ConstantesConexion.CTXTFAC}/${ConstantesMetodos.CONFIG_NEGOCIO}?idNegocio=${iIdNegocio}`);
+    return this.httpClient.get<Business>(`${ConstantesConexion.PROTOCOL}://${ConstantesConexion.HOST_URL}/${ConstantesConexion.CTXTFAC}/${ConstantesMetodos.CONFIG_NEGOCIO}?idNegocio=${iIdNegocio}`);
   }
 }

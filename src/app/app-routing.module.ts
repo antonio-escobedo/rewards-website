@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ValidationTokenComponent } from './validation-token/validation-token.component';
 import { AdminGuard } from './admin.guard';
-import { NegociosComponent } from './negocio/components/negocios/negocios.component';
-import { MarcasComponent } from './marcas/marcas.component';
+import { BusinessesComponent } from './business/components/businesses/businesses.component';
+import { BrandsComponent } from './brands/brands.component';
 
 const routes: Routes = [
   {
@@ -18,14 +18,14 @@ const routes: Routes = [
   {
     path: 'negocios',
     canActivate: [AdminGuard],
-    component: NegociosComponent
+    component: BusinessesComponent
   },
   { path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
   { path: 'marcas',
-    component: MarcasComponent
+    component: BrandsComponent
   }
 ];
 

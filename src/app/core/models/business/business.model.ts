@@ -1,11 +1,11 @@
 import { Result } from '../result/result.model';
 
-export interface Negocio {
-    detalle: NegocioDetail[];
+export interface Business {
+    detalle: BusinessDetail[];
     resultadoDto: Result;
 }
 
-export interface NegocioDetail {
+export interface BusinessDetail {
     bIsAppConfig: boolean;
     iIdNegocio: number;
     sData: string;
