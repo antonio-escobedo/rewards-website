@@ -49,3 +49,47 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+
+
+/* {
+  "detalle": {
+    "bDosFactoresActivo": 0,
+    "dFechaUltimoLogin": null,
+    "iIdMarca": 0,
+    "iIdNegocio": 1,
+    "iIdRol": 1,
+    "iIdUsuario": 1,
+    "sCorreoValida": "vidsoft@gmail.com",
+    "sPassMd5": null,
+    "sTelefonoValida": null,
+    "sToken": "620764",
+    "sUltimo2Fact": "673633",
+    "sUsuario": "uriel"
+},
+"resultDto": {
+    "iResultado": "Ok",
+    "sDetalle": "Login exitoso"
+}
+}*/
+
+/* login con token
+{
+    "detalle": {
+        "bDosFactoresActivo": 0,
+        "dFechaUltimoLogin": null,
+        "iIdMarca": 0,
+        "iIdNegocio": 1,
+        "iIdRol": 1,
+        "iIdUsuario": 1,
+        "sCorreoValida": "vidsoft@gmail.com",
+        "sPassMd5": null,
+        "sTelefonoValida": null,
+        "sToken": "164761",
+        "sUltimo2Fact": "250232",
+        "sUsuario": "uriel"
+    },
+    "resultDto": {
+        "iResultado": "Ok",
+        "sDetalle": "Login exitoso"
+    }
+}*/

@@ -1,5 +1,5 @@
 export class ConstantesConexion {
-    static readonly PROTOCOL: string = 'http';
+    static readonly PROTOCOL: string = 'https';
     static readonly HOST_URL: string = '34.234.225.159:8080';
     static readonly PORT: string = '8080';
     static readonly CTXTFAC: string = 'RestFull_Rewards-1.0/rest/rewards';
@@ -9,5 +9,6 @@ export class ConstantesConexion {
 export class ConstantesMetodos {
     static readonly LOGIN_NEGOCIO = 'loginNegocio';
     static readonly TOKEN = 'token2Factores';
-    static readonly CONFIG_NEGOCIO = 'configuracionApp'; //configuracionNegocios
+    static readonly CONFIG_NEGOCIO_APP = 'configuracionApp';
+    static readonly CONFIG_NEGOCIO = 'configuracionNegocios';
 }

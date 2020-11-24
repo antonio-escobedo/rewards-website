@@ -58,3 +58,13 @@ export class ValidationTokenComponent implements OnInit {
   }
 
 }
+
+/*
+{
+    "detalle": "466081",
+    "resultDto": {
+        "iResultado": "Ok",
+        "sDetalle": "Se ha generado el token exitosamente"
+    }
+}
+*/
