@@ -32,7 +32,7 @@ export class BusinessesComponent implements OnInit {
   paramForm18: FormGroup;
   paramForm19: FormGroup;
   paramForm20: FormGroup;
-  businessConfig: BusinessConfig;
+  businessConfig: BusinessConfig; //
 
   showFiller = false;
   step = 0;
